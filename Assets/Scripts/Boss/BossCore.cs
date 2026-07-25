@@ -108,8 +108,8 @@ public class BossCore : MonoBehaviour
     {
         ScatterSurvivingParts();
         GameManager.Instance?.NextStage();
-        gameObject.SetActive(false);
         if (Active == this) Active = null;
+        Destroy(gameObject);
     }
 
     void ScatterSurvivingParts()

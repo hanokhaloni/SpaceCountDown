@@ -2,12 +2,16 @@ using UnityEngine;
 
 public static class ArenaBounds
 {
+    static Camera mainCamera;
+
     public static Vector2 HalfExtents()
     {
-        Camera cam = Camera.main;
-        if (cam == null) return new Vector2(8f, 5f);
-        float height = cam.orthographicSize;
-        float width = height * cam.aspect;
+        // Unity's fake-null equality means this correctly re-fetches after a scene reload destroys the old camera.
+        if (mainCamera == null) mainCamera = Camera.main;
+        if (mainCamera == null) return new Vector2(8f, 5f);
+
+        float height = mainCamera.orthographicSize;
+        float width = height * mainCamera.aspect;
         return new Vector2(width, height);
     }
 

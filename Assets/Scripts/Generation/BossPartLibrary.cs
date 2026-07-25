@@ -49,8 +49,14 @@ public class BossPartLibrary : MonoBehaviour
     public bool ActivateBossForStage(int stage)
     {
         if (bossSequence == null || bossSequence.Count == 0) return false;
+
+        // Clone rather than reactivate: Awake() won't re-run on a toggled instance, so a reused boss would keep its prior (defeated) state.
         int index = (stage - 1) % bossSequence.Count;
-        bossSequence[index].SetActive(true);
+        GameObject template = bossSequence[index];
+
+        GameObject instance = Object.Instantiate(template);
+        instance.name = template.name;
+        instance.SetActive(true);
         return true;
     }
 

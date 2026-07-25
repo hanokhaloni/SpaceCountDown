@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
     SpriteRenderer visual;
     Camera cam;
     Vector3 spawnPosition;
+    Vector2 moveInput;
+    bool canMove;
     float fireCooldown;
     float invulnTimer;
     float respawnTimer;
@@ -50,6 +52,7 @@ public class PlayerController : MonoBehaviour
 
         if (IsDown)
         {
+            canMove = false;
             if (isPlaying)
             {
                 respawnTimer -= Time.deltaTime;
@@ -59,15 +62,25 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
+        canMove = isPlaying;
         if (!isPlaying) return;
 
-        HandleMove();
+        ReadMoveInput();
         HandleAim();
         HandleFire();
         HandleRangeTracking();
 
         if (invulnTimer > 0f)
             invulnTimer -= Time.deltaTime;
+    }
+
+    void FixedUpdate()
+    {
+        if (!canMove) return;
+
+        Vector3 next = transform.position + (Vector3)(moveInput * moveSpeed * Time.fixedDeltaTime);
+        next = ArenaBounds.Clamp(next, arenaMargin);
+        rb.MovePosition(next);
     }
 
     void HandleRangeTracking()
@@ -77,16 +90,12 @@ public class PlayerController : MonoBehaviour
         GameManager.Instance.Profile.RegisterRangeSample(distance);
     }
 
-    void HandleMove()
+    void ReadMoveInput()
     {
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
-        Vector2 dir = new Vector2(h, v);
-        if (dir.sqrMagnitude > 1f) dir.Normalize();
-
-        Vector3 next = transform.position + (Vector3)(dir * moveSpeed * Time.deltaTime);
-        next = ArenaBounds.Clamp(next, arenaMargin);
-        rb.MovePosition(next);
+        moveInput = new Vector2(h, v);
+        if (moveInput.sqrMagnitude > 1f) moveInput.Normalize();
     }
 
     void HandleAim()

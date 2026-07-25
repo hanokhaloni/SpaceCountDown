@@ -1,4 +1,4 @@
-using System.Linq;
+using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(BossCore))]
@@ -13,6 +13,7 @@ public class BossMovement : MonoBehaviour
     BossCore core;
     Vector2 target;
     bool hasTarget;
+    List<BossPart> engineParts;
 
     void Awake()
     {
@@ -61,11 +62,21 @@ public class BossMovement : MonoBehaviour
 
     float EngineSpeedMultiplier()
     {
-        var engines = core.Parts.Where(p => p.Type == BossPart.PartType.Engine).ToList();
-        if (engines.Count == 0) return 1f;
+        if (engineParts == null)
+        {
+            engineParts = new List<BossPart>();
+            foreach (var p in core.Parts)
+                if (p.Type == BossPart.PartType.Engine)
+                    engineParts.Add(p);
+        }
 
-        int intact = engines.Count(p => !p.IsDestroyed);
-        float ratio = (float)intact / engines.Count;
+        if (engineParts.Count == 0) return 1f;
+
+        int intact = 0;
+        for (int i = 0; i < engineParts.Count; i++)
+            if (!engineParts[i].IsDestroyed) intact++;
+
+        float ratio = (float)intact / engineParts.Count;
         return Mathf.Lerp(0.3f, 1f, ratio);
     }
 
