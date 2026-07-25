@@ -4,21 +4,21 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D), typeof(CircleCollider2D))]
 public class BossPart : MonoBehaviour
 {
-    public enum PartType { Core, Armor, Turret, MissileLauncher, RotatingArm, WeakPoint, Engine, ShieldNode }
+    public enum PartType { Core, Armor, Turret, MissileLauncher, RotatingArm, WeakPoint, Engine, ShieldNode, SpreadTurret }
 
     [SerializeField] PartType partType = PartType.Armor;
     [SerializeField] int maxHealth = 20;
     [SerializeField] float fireInterval = 1.5f;
     [SerializeField] float bulletSpeed = 5f;
     [SerializeField] Color bulletColor = new Color(1f, 0.3f, 0.3f);
-    [SerializeField] float telegraphDuration = 0.35f;
     [SerializeField] float missileTurnRate = 90f;
+    [SerializeField] int spreadBulletCount = 5;
+    [SerializeField] float spreadAngleDegrees = 45f;
     [SerializeField] AudioClip hitSound;
     [SerializeField] AudioClip destroySound;
 
     int health;
     float fireTimer;
-    SpriteRenderer telegraphRing;
 
     public event Action<BossPart> Destroyed;
     public PartType Type => partType;
@@ -39,22 +39,6 @@ public class BossPart : MonoBehaviour
         if (col.radius <= 0f) col.radius = 0.5f;
 
         fireTimer = UnityEngine.Random.Range(0f, fireInterval);
-
-        var existingRing = transform.Find("TelegraphRing");
-        if (existingRing != null)
-        {
-            telegraphRing = existingRing.GetComponent<SpriteRenderer>();
-        }
-        else
-        {
-            var ringGO = new GameObject("TelegraphRing");
-            ringGO.transform.SetParent(transform, false);
-            ringGO.transform.localScale = Vector3.one * 1.6f;
-            telegraphRing = ringGO.AddComponent<SpriteRenderer>();
-            telegraphRing.sprite = Shapes.Circle(new Color(1f, 0.9f, 0.2f, 0.55f));
-            telegraphRing.sortingOrder = 2;
-        }
-        telegraphRing.enabled = false;
     }
 
     void Update()
@@ -64,24 +48,15 @@ public class BossPart : MonoBehaviour
             return;
         if (BossCore.Active != null && BossCore.Active.IsEntering) return;
 
-        if (partType == PartType.Turret || partType == PartType.MissileLauncher)
+        if (partType == PartType.Turret || partType == PartType.MissileLauncher || partType == PartType.SpreadTurret)
         {
             fireTimer -= Time.deltaTime;
-
-            float effectiveTelegraph = Mathf.Min(telegraphDuration, fireInterval * 0.6f);
-            bool telegraphing = fireTimer <= effectiveTelegraph;
-            telegraphRing.enabled = telegraphing && Mathf.FloorToInt(Time.time / 0.08f) % 2 == 0;
 
             if (fireTimer <= 0f)
             {
                 fireTimer = fireInterval;
-                telegraphRing.enabled = false;
                 Fire();
             }
-        }
-        else if (telegraphRing.enabled)
-        {
-            telegraphRing.enabled = false;
         }
     }
 
@@ -89,12 +64,38 @@ public class BossPart : MonoBehaviour
     {
         if (PlayerController.Instance == null) return;
         Vector2 dir = (PlayerController.Instance.transform.position - transform.position).normalized;
+
+        if (partType == PartType.SpreadTurret)
+            FireSpread(dir);
+        else
+            FireSingle(dir);
+
+        if (partType == PartType.MissileLauncher) GameManager.Instance?.PlayEnemyMissileSound(0.5f);
+        else GameManager.Instance?.PlayEnemyBulletSound(0.5f);
+    }
+
+    void FireSingle(Vector2 dir)
+    {
         bool homing = partType == PartType.MissileLauncher;
         float lifetime = homing ? 2f : 4f;
         Bullet.Spawn(transform.position, dir, bulletSpeed, 0.1f, bulletColor, Bullet.Owner.Boss, lifetimeSeconds: lifetime, homing: homing, turnRateDegPerSec: missileTurnRate);
+        MuzzleSmoke.Spawn(transform.position, dir);
+    }
 
-        if (homing) GameManager.Instance?.PlayEnemyMissileSound(0.5f);
-        else GameManager.Instance?.PlayEnemyBulletSound(0.5f);
+    void FireSpread(Vector2 aimDir)
+    {
+        int count = Mathf.Max(1, spreadBulletCount);
+        float baseAngle = Mathf.Atan2(aimDir.y, aimDir.x) * Mathf.Rad2Deg;
+        float startAngle = count > 1 ? baseAngle - spreadAngleDegrees / 2f : baseAngle;
+        float step = count > 1 ? spreadAngleDegrees / (count - 1) : 0f;
+
+        for (int i = 0; i < count; i++)
+        {
+            float angle = startAngle + step * i;
+            Vector2 dir = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad));
+            Bullet.Spawn(transform.position, dir, bulletSpeed, 0.1f, bulletColor, Bullet.Owner.Boss, lifetimeSeconds: 4f);
+            MuzzleSmoke.Spawn(transform.position, dir);
+        }
     }
 
     public void Configure(PartType type, int newMaxHealth, float newFireInterval, Color newBulletColor)
@@ -120,7 +121,7 @@ public class BossPart : MonoBehaviour
             IsDestroyed = true;
             Audio.Play(destroySound);
             CameraShake.Shake(0.15f, 0.08f);
-            ParticleBurst.Spawn(transform.position, bulletColor, 10);
+            ParticleBurst.Spawn(transform.position, bulletColor, 20, speed: 5f, life: 0.5f);
             Destroyed?.Invoke(this);
             gameObject.SetActive(false);
         }

@@ -1,16 +1,13 @@
 using System.Collections.Generic;
-using System.Linq;
-using System.Text.RegularExpressions;
 using UnityEngine;
 
 public class BossPartLibrary : MonoBehaviour
 {
     public static BossPartLibrary Instance { get; private set; }
 
-    static readonly Regex NumberPattern = new Regex(@"\((\d+)\)");
+    [SerializeField] List<GameObject> bossSequence = new List<GameObject>();
 
     Dictionary<BossPart.PartType, List<GameObject>> templates;
-    List<GameObject> bossSequence;
 
     void Awake()
     {
@@ -27,23 +24,10 @@ public class BossPartLibrary : MonoBehaviour
             list.Add(part.gameObject);
         }
 
-        var allBosses = FindObjectsOfType<BossCore>(true).Select(c => c.gameObject).ToList();
-
-        bossSequence = allBosses
-            .Where(go => go.name != "Enemy")
-            .OrderBy(go => ParseNumber(go.name))
-            .ToList();
-
-        foreach (var boss in allBosses)
-            boss.SetActive(false);
+        foreach (var boss in bossSequence)
+            if (boss != null) boss.SetActive(false);
 
         ActivateBossForStage(1);
-    }
-
-    static int ParseNumber(string name)
-    {
-        var match = NumberPattern.Match(name);
-        return match.Success && int.TryParse(match.Groups[1].Value, out int n) ? n : int.MaxValue;
     }
 
     public bool ActivateBossForStage(int stage)
@@ -53,6 +37,7 @@ public class BossPartLibrary : MonoBehaviour
         // Clone rather than reactivate: Awake() won't re-run on a toggled instance, so a reused boss would keep its prior (defeated) state.
         int index = (stage - 1) % bossSequence.Count;
         GameObject template = bossSequence[index];
+        if (template == null) return false;
 
         GameObject instance = Object.Instantiate(template);
         instance.name = template.name;

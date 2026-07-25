@@ -10,6 +10,7 @@ public static class BossGenerator
         BossPart.PartType.Turret,
         BossPart.PartType.MissileLauncher,
         BossPart.PartType.RotatingArm,
+        BossPart.PartType.SpreadTurret,
     };
 
     static readonly BossPart.PartType[] DefenseTypes =
@@ -173,6 +174,7 @@ public static class BossGenerator
             case BossPart.PartType.Turret: return new Color(1f, 0.4f, 0.2f);
             case BossPart.PartType.MissileLauncher: return new Color(1f, 0.65f, 0.15f);
             case BossPart.PartType.RotatingArm: return new Color(1f, 0.85f, 0.2f);
+            case BossPart.PartType.SpreadTurret: return new Color(1f, 0.5f, 0.6f);
             case BossPart.PartType.Armor: return new Color(0.4f, 0.4f, 0.5f);
             case BossPart.PartType.ShieldNode: return new Color(0.3f, 0.7f, 1f);
             case BossPart.PartType.Engine: return new Color(0.6f, 0.3f, 1f);
