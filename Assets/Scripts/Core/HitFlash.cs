@@ -5,7 +5,7 @@ using UnityEngine;
 public class HitFlash : MonoBehaviour
 {
     SpriteRenderer sr;
-    Sprite originalSprite;
+    SpriteRenderer overlay;
     Coroutine running;
 
     public static void Flash(SpriteRenderer target, float duration = 0.08f)
@@ -19,26 +19,28 @@ public class HitFlash : MonoBehaviour
     void Awake()
     {
         sr = GetComponent<SpriteRenderer>();
+
+        var overlayGO = new GameObject("HitFlashOverlay");
+        overlayGO.transform.SetParent(transform, false);
+        overlay = overlayGO.AddComponent<SpriteRenderer>();
+        overlay.color = Color.white;
+        overlay.enabled = false;
     }
 
     void DoFlash(float duration)
     {
-        if (running != null)
-        {
-            StopCoroutine(running);
-        }
-        else
-        {
-            originalSprite = sr.sprite;
-        }
+        if (running != null) StopCoroutine(running);
         running = StartCoroutine(FlashRoutine(duration));
     }
 
     IEnumerator FlashRoutine(float duration)
     {
-        sr.sprite = Shapes.Circle(Color.white);
+        // Reuses the target's own sprite (whatever shape it is) tinted white, layered on top, instead of swapping in a hardcoded shape.
+        overlay.sprite = sr.sprite;
+        overlay.sortingOrder = sr.sortingOrder + 1;
+        overlay.enabled = true;
         yield return new WaitForSeconds(duration);
-        sr.sprite = originalSprite;
+        overlay.enabled = false;
         running = null;
     }
 }

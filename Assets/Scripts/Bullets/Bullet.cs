@@ -37,13 +37,18 @@ public class Bullet : MonoBehaviour
     public Owner BulletOwner { get; private set; }
     public int Damage { get; private set; } = 1;
 
+    const float bounceDuration = 0.12f;
+
     Rigidbody2D rb;
     SpriteRenderer sr;
+    CircleCollider2D col;
     Vector2 velocity;
     float lifetime;
     float age;
     bool isHoming;
     bool isDespawned;
+    bool isBouncing;
+    float bounceTimer;
     float turnRateDegPerSec;
     float explosionRadius;
 
@@ -51,6 +56,7 @@ public class Bullet : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
+        col = GetComponent<CircleCollider2D>();
     }
 
     public static Bullet Spawn(Vector3 position, Vector2 direction, float speed, float radius, Color color, Owner owner, int damage = 1, float lifetimeSeconds = 4f, bool homing = false, float turnRateDegPerSec = 90f, float explosionRadius = 0.6f)
@@ -76,11 +82,21 @@ public class Bullet : MonoBehaviour
         explosionRadius = explosionRad;
         age = 0f;
         isDespawned = false;
+        isBouncing = false;
+        col.enabled = true;
     }
 
     void FixedUpdate()
     {
         age += Time.fixedDeltaTime;
+
+        if (isBouncing)
+        {
+            bounceTimer -= Time.fixedDeltaTime;
+            rb.MovePosition(rb.position + velocity * Time.fixedDeltaTime);
+            if (bounceTimer <= 0f) Despawn();
+            return;
+        }
 
         if (isHoming && PlayerController.Instance != null && !PlayerController.Instance.IsDown)
             HomeTowardsPlayer();
@@ -118,7 +134,7 @@ public class Bullet : MonoBehaviour
             if (part != null)
             {
                 part.TakeDamage(Damage);
-                Despawn();
+                BounceOff(other);
             }
         }
         else
@@ -131,6 +147,17 @@ public class Bullet : MonoBehaviour
                 Despawn();
             }
         }
+    }
+
+    void BounceOff(Collider2D other)
+    {
+        isBouncing = true;
+        bounceTimer = bounceDuration;
+        col.enabled = false;
+
+        Vector2 normal = rb.position - (Vector2)other.transform.position;
+        if (normal.sqrMagnitude < 0.0001f) normal = -velocity;
+        velocity = normal.normalized * velocity.magnitude * 0.5f;
     }
 
     void Explode()
