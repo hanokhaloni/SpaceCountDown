@@ -14,6 +14,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float hitboxRadius = 0.2f;
     [SerializeField] float arenaMargin = 0.3f;
     [SerializeField] float respawnDelay = 10f;
+    [SerializeField] AudioClip fireSound;
+    [SerializeField] AudioClip hitSound;
+    [SerializeField] AudioClip respawnSound;
 
     Rigidbody2D rb;
     CircleCollider2D col;
@@ -117,6 +120,7 @@ public class PlayerController : MonoBehaviour
         {
             fireCooldown = 1f / fireRate;
             Bullet.Spawn(transform.position, transform.up, bulletSpeed, bulletRadius, bulletColor, Bullet.Owner.Player);
+            Audio.Play(fireSound, 0.5f);
         }
     }
 
@@ -131,6 +135,9 @@ public class PlayerController : MonoBehaviour
         IsDown = true;
         respawnTimer = respawnDelay;
         SetVisible(false);
+        Audio.Play(hitSound);
+        CameraShake.Shake(0.3f, 0.18f);
+        ParticleBurst.Spawn(transform.position, bulletColor, 14);
     }
 
     void Respawn()
@@ -140,6 +147,7 @@ public class PlayerController : MonoBehaviour
         transform.rotation = Quaternion.identity;
         SetVisible(true);
         invulnTimer = invulnDuration;
+        Audio.Play(respawnSound);
     }
 
     void SetVisible(bool isVisible)

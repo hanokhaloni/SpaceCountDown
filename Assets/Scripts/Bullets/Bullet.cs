@@ -136,6 +136,7 @@ public class Bullet : MonoBehaviour
     void Explode()
     {
         SpawnExplosionEffect(transform.position, explosionRadius);
+        CameraShake.Shake(0.12f, 0.06f);
 
         if (BulletOwner == Owner.Boss && PlayerController.Instance != null && !PlayerController.Instance.IsDown)
         {

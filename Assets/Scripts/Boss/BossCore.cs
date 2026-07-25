@@ -8,6 +8,8 @@ public class BossCore : MonoBehaviour
     [SerializeField] float introDuration = 0.9f;
     [SerializeField] float introTopMargin = 1.5f;
     [SerializeField] Color warpFlashColor = new Color(0.4f, 0.9f, 1f, 0.9f);
+    [SerializeField] AudioClip warpSound;
+    [SerializeField] AudioClip defeatSound;
 
     public static BossCore Active { get; private set; }
     public bool IsEntering { get; private set; }
@@ -30,6 +32,7 @@ public class BossCore : MonoBehaviour
         IsEntering = true;
 
         SpawnHyperspaceStreak(entryStartPosition);
+        Audio.Play(warpSound);
 
         parts = GetComponentsInChildren<BossPart>(true).ToList();
         corePart = parts.FirstOrDefault(p => p.Type == BossPart.PartType.Core);
@@ -106,6 +109,10 @@ public class BossCore : MonoBehaviour
 
     void Defeat()
     {
+        Audio.Play(defeatSound);
+        CameraShake.Shake(0.5f, 0.25f);
+        ParticleBurst.Spawn(restPosition, warpFlashColor, 24);
+
         ScatterSurvivingParts();
         GameManager.Instance?.NextStage();
         if (Active == this) Active = null;

@@ -94,8 +94,15 @@ public class HUDController : MonoBehaviour
         var gm = GameManager.Instance;
         if (gm == null) return;
 
-        stageText.text = $"STAGE {gm.Stage}";
-        UpdateTimer(gm);
+        bool onTitleScreen = gm.CurrentState == GameManager.GameState.Title;
+        stageText.gameObject.SetActive(!onTitleScreen);
+        timerText.gameObject.SetActive(!onTitleScreen);
+
+        if (!onTitleScreen)
+        {
+            stageText.text = $"STAGE {gm.Stage}";
+            UpdateTimer(gm);
+        }
 
         UpdateCenterMessage(gm);
         UpdateRespawnMessage();
@@ -135,7 +142,12 @@ public class HUDController : MonoBehaviour
 
     void UpdateCenterMessage(GameManager gm)
     {
-        if (gm.CurrentState == GameManager.GameState.Paused)
+        if (gm.CurrentState == GameManager.GameState.Title)
+        {
+            centerMessageText.text = "SPACE COUNTDOWN\n\nClick or press Space to start\n\nMove: WASD   Aim: Mouse   Fire: Left Click";
+            centerMessageText.gameObject.SetActive(true);
+        }
+        else if (gm.CurrentState == GameManager.GameState.Paused)
         {
             centerMessageText.text = "PAUSED\n(Esc to resume)";
             centerMessageText.gameObject.SetActive(true);

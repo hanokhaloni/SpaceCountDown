@@ -10,8 +10,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] Transform enemySpawnPoint;
     [SerializeField] float startingTime = 30f;
     [SerializeField] float bossDefeatTimeBonus = 20f;
+    [SerializeField] AudioClip stageStartSound;
+    [SerializeField] AudioClip gameOverSound;
 
-    public GameState CurrentState { get; private set; } = GameState.Playing;
+    public GameState CurrentState { get; private set; } = GameState.Title;
     public int Stage { get; private set; } = 1;
     public float TimeRemaining { get; private set; }
     public PlayerProfile Profile { get; private set; } = PlayerProfile.Neutral();
@@ -33,10 +35,20 @@ public class GameManager : MonoBehaviour
             hudGO.AddComponent<HUDController>();
             DontDestroyOnLoad(hudGO);
         }
+
+        if (Camera.main != null && Camera.main.GetComponent<CameraShake>() == null)
+            Camera.main.gameObject.AddComponent<CameraShake>();
     }
 
     void Update()
     {
+        if (CurrentState == GameState.Title)
+        {
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
+                StartRun();
+            return;
+        }
+
         if (CurrentState == GameState.Playing)
         {
             TimeRemaining -= Time.deltaTime;
@@ -85,6 +97,7 @@ public class GameManager : MonoBehaviour
         }
 
         HUDController.Instance?.ShowBanner($"STAGE {Stage} — {BossGenerator.DescribeAdaptation(Profile)}");
+        Audio.Play(stageStartSound);
     }
 
     public void TogglePause()
@@ -96,5 +109,6 @@ public class GameManager : MonoBehaviour
     void EndGame()
     {
         CurrentState = GameState.GameOver;
+        Audio.Play(gameOverSound);
     }
 }
