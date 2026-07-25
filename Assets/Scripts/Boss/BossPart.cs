@@ -13,7 +13,6 @@ public class BossPart : MonoBehaviour
     [SerializeField] Color bulletColor = new Color(1f, 0.3f, 0.3f);
     [SerializeField] float telegraphDuration = 0.35f;
     [SerializeField] float missileTurnRate = 90f;
-    [SerializeField] AudioClip shootSound;
     [SerializeField] AudioClip hitSound;
     [SerializeField] AudioClip destroySound;
 
@@ -93,7 +92,9 @@ public class BossPart : MonoBehaviour
         bool homing = partType == PartType.MissileLauncher;
         float lifetime = homing ? 2f : 4f;
         Bullet.Spawn(transform.position, dir, bulletSpeed, 0.1f, bulletColor, Bullet.Owner.Boss, lifetimeSeconds: lifetime, homing: homing, turnRateDegPerSec: missileTurnRate);
-        Audio.Play(shootSound, 0.5f);
+
+        if (homing) GameManager.Instance?.PlayEnemyMissileSound(0.5f);
+        else GameManager.Instance?.PlayEnemyBulletSound(0.5f);
     }
 
     public void Configure(PartType type, int newMaxHealth, float newFireInterval, Color newBulletColor)

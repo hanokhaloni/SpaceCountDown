@@ -249,7 +249,6 @@ MonoBehaviour:
   bulletColor: {r: 1, g: 0.89164263, b: 0, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &61064096
@@ -395,7 +394,6 @@ MonoBehaviour:
   bulletColor: {r: 0.10779405, g: 1, b: 0, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &91541498
@@ -541,7 +539,6 @@ MonoBehaviour:
   bulletColor: {r: 0.10779405, g: 1, b: 0, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &119681207
@@ -687,7 +684,6 @@ MonoBehaviour:
   bulletColor: {r: 0.10779405, g: 1, b: 0, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &164602222
@@ -833,7 +829,6 @@ MonoBehaviour:
   bulletColor: {r: 1, g: 0.89164263, b: 0, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &170903129
@@ -979,7 +974,6 @@ MonoBehaviour:
   bulletColor: {r: 1, g: 0.3, b: 0.3, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &207302555
@@ -1211,7 +1205,6 @@ MonoBehaviour:
   bulletColor: {r: 1, g: 0.89164263, b: 0, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &254309046
@@ -1444,7 +1437,6 @@ MonoBehaviour:
   bulletColor: {r: 0.10779405, g: 1, b: 0, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &267353318
@@ -1590,7 +1582,6 @@ MonoBehaviour:
   bulletColor: {r: 1, g: 0.89164263, b: 0, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &305570357
@@ -1736,7 +1727,6 @@ MonoBehaviour:
   bulletColor: {r: 1, g: 0.3, b: 0.3, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &358645813
@@ -1960,7 +1950,6 @@ MonoBehaviour:
   bulletColor: {r: 1, g: 0.3, b: 0.3, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &405106205
@@ -2106,7 +2095,6 @@ MonoBehaviour:
   bulletColor: {r: 1, g: 0.89164263, b: 0, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &413828063
@@ -2252,7 +2240,6 @@ MonoBehaviour:
   bulletColor: {r: 1, g: 0.3, b: 0.3, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &414342023
@@ -2482,7 +2469,6 @@ MonoBehaviour:
   bulletColor: {r: 0.10779405, g: 1, b: 0, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &456244362
@@ -2628,7 +2614,6 @@ MonoBehaviour:
   bulletColor: {r: 1, g: 0.3, b: 0.3, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &466052430
@@ -2774,7 +2759,6 @@ MonoBehaviour:
   bulletColor: {r: 1, g: 0.89164263, b: 0, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &468118722
@@ -3004,7 +2988,6 @@ MonoBehaviour:
   bulletColor: {r: 0.10779405, g: 1, b: 0, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &526266594
@@ -3150,7 +3133,6 @@ MonoBehaviour:
   bulletColor: {r: 1, g: 0.89164263, b: 0, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &542103460
@@ -3296,7 +3278,6 @@ MonoBehaviour:
   bulletColor: {r: 0.10779405, g: 1, b: 0, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &546979939
@@ -3442,7 +3423,6 @@ MonoBehaviour:
   bulletColor: {r: 1, g: 0.89164263, b: 0, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &561160179
@@ -3588,7 +3568,6 @@ MonoBehaviour:
   bulletColor: {r: 0.10779405, g: 1, b: 0, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &581609366
@@ -3821,7 +3800,6 @@ MonoBehaviour:
   bulletColor: {r: 0.10779405, g: 1, b: 0, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &641437527
@@ -3967,7 +3945,6 @@ MonoBehaviour:
   bulletColor: {r: 1, g: 0.3, b: 0.3, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &717035404
@@ -4113,7 +4090,6 @@ MonoBehaviour:
   bulletColor: {r: 0.10779405, g: 1, b: 0, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &733517512
@@ -4259,7 +4235,6 @@ MonoBehaviour:
   bulletColor: {r: 1, g: 0.89164263, b: 0, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &750595518
@@ -4405,7 +4380,6 @@ MonoBehaviour:
   bulletColor: {r: 1, g: 0.3, b: 0.3, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &813795763
@@ -4694,8 +4668,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1691031706}
   - {fileID: 1525950671}
+  - {fileID: 1426821586}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4753,7 +4727,6 @@ MonoBehaviour:
   bulletColor: {r: 1, g: 0.3, b: 0.3, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &855271179
@@ -4933,7 +4906,6 @@ MonoBehaviour:
   bulletColor: {r: 1, g: 0.89164263, b: 0, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &914300236
@@ -5079,7 +5051,6 @@ MonoBehaviour:
   bulletColor: {r: 1, g: 0.3, b: 0.3, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &944715631
@@ -5225,7 +5196,6 @@ MonoBehaviour:
   bulletColor: {r: 1, g: 0.89164263, b: 0, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &955189942
@@ -5371,7 +5341,6 @@ MonoBehaviour:
   bulletColor: {r: 1, g: 0.3, b: 0.3, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &962837759
@@ -5517,7 +5486,6 @@ MonoBehaviour:
   bulletColor: {r: 1, g: 0.3, b: 0.3, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &972407129
@@ -5750,7 +5718,6 @@ MonoBehaviour:
   bulletColor: {r: 1, g: 0.89164263, b: 0, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &1011879787
@@ -5896,7 +5863,6 @@ MonoBehaviour:
   bulletColor: {r: 1, g: 0.3, b: 0.3, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &1018706165
@@ -6042,7 +6008,6 @@ MonoBehaviour:
   bulletColor: {r: 1, g: 0.3, b: 0.3, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &1033688145
@@ -6188,7 +6153,6 @@ MonoBehaviour:
   bulletColor: {r: 1, g: 0.89164263, b: 0, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &1050598509
@@ -6334,7 +6298,6 @@ MonoBehaviour:
   bulletColor: {r: 1, g: 0.89164263, b: 0, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &1072151066
@@ -6480,7 +6443,6 @@ MonoBehaviour:
   bulletColor: {r: 1, g: 0.3, b: 0.3, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &1075260492
@@ -6626,7 +6588,6 @@ MonoBehaviour:
   bulletColor: {r: 0.10779405, g: 1, b: 0, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &1095429339
@@ -6772,7 +6733,6 @@ MonoBehaviour:
   bulletColor: {r: 1, g: 0.3, b: 0.3, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &1102036097
@@ -6918,7 +6878,6 @@ MonoBehaviour:
   bulletColor: {r: 1, g: 0.89164263, b: 0, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &1105829099
@@ -7064,7 +7023,6 @@ MonoBehaviour:
   bulletColor: {r: 1, g: 0.89164263, b: 0, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &1153149409
@@ -7210,7 +7168,6 @@ MonoBehaviour:
   bulletColor: {r: 1, g: 0.89164263, b: 0, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &1165590781
@@ -7392,7 +7349,6 @@ MonoBehaviour:
   bulletColor: {r: 0.10779405, g: 1, b: 0, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &1182840923
@@ -7538,7 +7494,6 @@ MonoBehaviour:
   bulletColor: {r: 1, g: 0.89164263, b: 0, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &1185367551
@@ -7684,7 +7639,6 @@ MonoBehaviour:
   bulletColor: {r: 1, g: 0.3, b: 0.3, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &1189921926
@@ -7830,7 +7784,6 @@ MonoBehaviour:
   bulletColor: {r: 1, g: 0.3, b: 0.3, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &1205509371
@@ -8122,7 +8075,6 @@ MonoBehaviour:
   bulletColor: {r: 1, g: 0.89164263, b: 0, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &1215074704
@@ -8268,7 +8220,6 @@ MonoBehaviour:
   bulletColor: {r: 1, g: 0.89164263, b: 0, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &1239609160
@@ -8414,7 +8365,6 @@ MonoBehaviour:
   bulletColor: {r: 1, g: 0.3, b: 0.3, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &1242244834
@@ -8647,7 +8597,6 @@ MonoBehaviour:
   bulletColor: {r: 1, g: 0.3, b: 0.3, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &1319912551
@@ -8793,7 +8742,6 @@ MonoBehaviour:
   bulletColor: {r: 0.10779405, g: 1, b: 0, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &1343645917
@@ -8939,7 +8887,6 @@ MonoBehaviour:
   bulletColor: {r: 0.10779405, g: 1, b: 0, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &1357382374
@@ -9085,7 +9032,6 @@ MonoBehaviour:
   bulletColor: {r: 0.10779405, g: 1, b: 0, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &1388836631
@@ -9231,7 +9177,6 @@ MonoBehaviour:
   bulletColor: {r: 1, g: 0.3, b: 0.3, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &1415362448
@@ -9323,6 +9268,90 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1426821585
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1426821586}
+  - component: {fileID: 1426821587}
+  m_Layer: 0
+  m_Name: Player
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1426821586
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1426821585}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 841703428}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &1426821587
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1426821585}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 28597c1fd3e698748afd52f448db7848, type: 3}
+  m_Color: {r: 0, g: 0.91935134, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 0.32, y: 0.32}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 2
+  m_SpriteSortPoint: 0
 --- !u!1 &1431105410
 GameObject:
   m_ObjectHideFlags: 0
@@ -9377,7 +9406,6 @@ MonoBehaviour:
   bulletColor: {r: 1, g: 0.3, b: 0.3, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &1431105413
@@ -9523,7 +9551,6 @@ MonoBehaviour:
   bulletColor: {r: 1, g: 0.89164263, b: 0, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &1445212437
@@ -9669,7 +9696,6 @@ MonoBehaviour:
   bulletColor: {r: 1, g: 0.89164263, b: 0, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &1461592550
@@ -9815,7 +9841,6 @@ MonoBehaviour:
   bulletColor: {r: 1, g: 0.3, b: 0.3, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &1463798327
@@ -9961,7 +9986,6 @@ MonoBehaviour:
   bulletColor: {r: 1, g: 0.3, b: 0.3, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &1463869753
@@ -10107,7 +10131,6 @@ MonoBehaviour:
   bulletColor: {r: 1, g: 0.3, b: 0.3, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &1488596088
@@ -10253,7 +10276,6 @@ MonoBehaviour:
   bulletColor: {r: 1, g: 0.3, b: 0.3, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &1508568478
@@ -10399,7 +10421,6 @@ MonoBehaviour:
   bulletColor: {r: 1, g: 0.3, b: 0.3, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &1510739040
@@ -10521,7 +10542,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 841703428}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1525950672
 SpriteRenderer:
@@ -10716,7 +10737,6 @@ MonoBehaviour:
   bulletColor: {r: 1, g: 0.89164263, b: 0, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &1581517885
@@ -10862,7 +10882,6 @@ MonoBehaviour:
   bulletColor: {r: 0.10779405, g: 1, b: 0, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &1617559179
@@ -11008,7 +11027,6 @@ MonoBehaviour:
   bulletColor: {r: 1, g: 0.89164263, b: 0, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &1638631913
@@ -11154,7 +11172,6 @@ MonoBehaviour:
   bulletColor: {r: 1, g: 0.3, b: 0.3, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &1675204450
@@ -11241,90 +11258,6 @@ SpriteRenderer:
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!1 &1691031705
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1691031706}
-  - component: {fileID: 1691031707}
-  m_Layer: 0
-  m_Name: Player
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1691031706
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1691031705}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 841703428}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &1691031707
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1691031705}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 28597c1fd3e698748afd52f448db7848, type: 3}
-  m_Color: {r: 0, g: 0.5773268, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 0.32, y: 0.32}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -11424,7 +11357,6 @@ MonoBehaviour:
   bulletColor: {r: 1, g: 0.89164263, b: 0, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &1727961894
@@ -11570,7 +11502,6 @@ MonoBehaviour:
   bulletColor: {r: 1, g: 0.3, b: 0.3, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &1731446628
@@ -11716,7 +11647,6 @@ MonoBehaviour:
   bulletColor: {r: 1, g: 0.89164263, b: 0, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &1775924932
@@ -11862,7 +11792,6 @@ MonoBehaviour:
   bulletColor: {r: 1, g: 0.89164263, b: 0, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &1779789605
@@ -12008,7 +11937,6 @@ MonoBehaviour:
   bulletColor: {r: 1, g: 0.3, b: 0.3, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &1781536790
@@ -12154,7 +12082,6 @@ MonoBehaviour:
   bulletColor: {r: 1, g: 0.89164263, b: 0, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &1826307394
@@ -12300,7 +12227,6 @@ MonoBehaviour:
   bulletColor: {r: 1, g: 0.3, b: 0.3, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &1871443545
@@ -12446,7 +12372,6 @@ MonoBehaviour:
   bulletColor: {r: 1, g: 0.3, b: 0.3, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &1919653343
@@ -12592,7 +12517,6 @@ MonoBehaviour:
   bulletColor: {r: 1, g: 0.89164263, b: 0, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &1932950723
@@ -12738,7 +12662,6 @@ MonoBehaviour:
   bulletColor: {r: 1, g: 0.3, b: 0.3, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &1934037988
@@ -12888,7 +12811,6 @@ MonoBehaviour:
   hitboxRadius: 0.2
   arenaMargin: 0.3
   respawnDelay: 10
-  fireSound: {fileID: 0}
   hitSound: {fileID: 0}
   respawnSound: {fileID: 0}
 --- !u!114 &2000000004
@@ -12964,7 +12886,6 @@ MonoBehaviour:
   bulletColor: {r: 1, g: 0.3, b: 0.3, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!50 &2000000008
@@ -13023,7 +12944,6 @@ MonoBehaviour:
   bulletColor: {r: 1, g: 0.89164263, b: 0, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!50 &2000000011
@@ -13082,7 +13002,6 @@ MonoBehaviour:
   bulletColor: {r: 1, g: 0.3, b: 0.3, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!50 &2000000014
@@ -13141,7 +13060,6 @@ MonoBehaviour:
   bulletColor: {r: 0.10779405, g: 1, b: 0, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!50 &2000000017
@@ -13200,7 +13118,6 @@ MonoBehaviour:
   bulletColor: {r: 1, g: 0.3, b: 0.3, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!1 &2000000020
@@ -13250,8 +13167,23 @@ MonoBehaviour:
   enemySpawnPoint: {fileID: 881773089}
   startingTime: 30
   bossDefeatTimeBonus: 20
-  stageStartSound: {fileID: 0}
-  gameOverSound: {fileID: 0}
+  stageStartSound: {fileID: 8300000, guid: 634c9979c58dc614a893eff2ff129333, type: 3}
+  gameOverSound: {fileID: 8300000, guid: 4a6115fad1b42b14a92d7272028a8026, type: 3}
+  stressSound: {fileID: 8300000, guid: ec10e5cce7dccfb40a1170f91dd352fd, type: 3}
+  playerBulletSounds:
+  - {fileID: 8300000, guid: 02dac50b80c3fc142995f8bc0993e5ce, type: 3}
+  - {fileID: 8300000, guid: 1b004cddd3f99984eb49779b18f98da8, type: 3}
+  - {fileID: 8300000, guid: 2c36b8d645c6e5c41a8bc09a45e617b8, type: 3}
+  enemyBulletSounds:
+  - {fileID: 8300000, guid: 987fef35267938343976609322e9d8b1, type: 3}
+  - {fileID: 8300000, guid: 669ed11b853b06045b80266e7e8a5eac, type: 3}
+  - {fileID: 8300000, guid: c7598a936d0ad69449478fc068f6ce62, type: 3}
+  enemyMissileSounds:
+  - {fileID: 8300000, guid: eda77c83232259c4c9b4cc8da0a5949c, type: 3}
+  - {fileID: 8300000, guid: bd839ded6d1401542bf3701874c1604e, type: 3}
+  musicVolume: 0.7
+  sfxVolume: 0.91
+  stressVolume: 1
 --- !u!114 &2000000023
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13444,7 +13376,6 @@ MonoBehaviour:
   bulletColor: {r: 1, g: 0.3, b: 0.3, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &2034500341
@@ -13590,7 +13521,6 @@ MonoBehaviour:
   bulletColor: {r: 1, g: 0.3, b: 0.3, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &2042760950
@@ -13736,7 +13666,6 @@ MonoBehaviour:
   bulletColor: {r: 1, g: 0.89164263, b: 0, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &2045480811
@@ -13960,7 +13889,6 @@ MonoBehaviour:
   bulletColor: {r: 1, g: 0.89164263, b: 0, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &2098041963
@@ -14106,7 +14034,6 @@ MonoBehaviour:
   bulletColor: {r: 1, g: 0.89164263, b: 0, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &2098811247
@@ -14252,7 +14179,6 @@ MonoBehaviour:
   bulletColor: {r: 1, g: 0.3, b: 0.3, a: 1}
   telegraphDuration: 0.35
   missileTurnRate: 90
-  shootSound: {fileID: 0}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}
 --- !u!58 &2102292162

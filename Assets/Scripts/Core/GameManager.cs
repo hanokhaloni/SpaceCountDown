@@ -12,11 +12,25 @@ public class GameManager : MonoBehaviour
     [SerializeField] float bossDefeatTimeBonus = 20f;
     [SerializeField] AudioClip stageStartSound;
     [SerializeField] AudioClip gameOverSound;
+    [SerializeField] AudioClip stressSound;
+    [SerializeField] AudioClip[] playerBulletSounds;
+    [SerializeField] AudioClip[] enemyBulletSounds;
+    [SerializeField] AudioClip[] enemyMissileSounds;
+
+    [Header("Volume")]
+    [SerializeField, Range(0f, 1f)] float musicVolume = 1f;
+    [SerializeField, Range(0f, 1f)] float sfxVolume = 1f;
+    [SerializeField, Range(0f, 1f)] float stressVolume = 1f;
+
+    const float stressThreshold = 10f;
 
     public GameState CurrentState { get; private set; } = GameState.Title;
     public int Stage { get; private set; } = 1;
     public float TimeRemaining { get; private set; }
     public PlayerProfile Profile { get; private set; } = PlayerProfile.Neutral();
+
+    AudioSource stageAudioSource;
+    AudioSource stressAudioSource;
 
     void Awake()
     {
@@ -28,6 +42,18 @@ public class GameManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
         TimeRemaining = startingTime;
+
+        stageAudioSource = gameObject.AddComponent<AudioSource>();
+        stageAudioSource.playOnAwake = false;
+        stageAudioSource.spatialBlend = 0f;
+
+        stressAudioSource = gameObject.AddComponent<AudioSource>();
+        stressAudioSource.playOnAwake = false;
+        stressAudioSource.spatialBlend = 0f;
+        stressAudioSource.loop = true;
+        stressAudioSource.clip = stressSound;
+
+        ApplyVolumeSettings();
 
         if (FindObjectOfType<HUDController>() == null)
         {
@@ -42,6 +68,8 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        ApplyVolumeSettings();
+
         if (CurrentState == GameState.Title)
         {
             if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
@@ -58,6 +86,8 @@ public class GameManager : MonoBehaviour
                 EndGame();
             }
         }
+
+        UpdateStressSound();
 
         if (Input.GetKeyDown(KeyCode.Escape) &&
             (CurrentState == GameState.Playing || CurrentState == GameState.Paused))
@@ -82,6 +112,8 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
         Profile = PlayerProfile.Neutral();
         CurrentState = GameState.Playing;
+        PlayStageStartSound();
+        PlayerController.Instance?.ResetForNewRun();
     }
 
     public void NextStage()
@@ -96,8 +128,48 @@ public class GameManager : MonoBehaviour
             BossGenerator.Generate(Stage, Profile, spawnPos);
         }
 
-        HUDController.Instance?.ShowBanner($"STAGE {Stage} — {BossGenerator.DescribeAdaptation(Profile)}");
-        Audio.Play(stageStartSound);
+        HUDController.Instance?.ShowBanner($"STAGE {Stage}\n{BossGenerator.DescribeAdaptation(Profile)}");
+        PlayStageStartSound();
+    }
+
+    void PlayStageStartSound()
+    {
+        if (stageStartSound == null) return;
+        stageAudioSource.Stop();
+        stageAudioSource.clip = stageStartSound;
+        stageAudioSource.loop = true;
+        stageAudioSource.volume = musicVolume;
+        stageAudioSource.Play();
+    }
+
+    void UpdateStressSound()
+    {
+        bool shouldPlay = CurrentState == GameState.Playing && TimeRemaining > 0f && TimeRemaining <= stressThreshold && stressSound != null;
+
+        if (shouldPlay && !stressAudioSource.isPlaying)
+            stressAudioSource.Play();
+        else if (!shouldPlay && stressAudioSource.isPlaying)
+            stressAudioSource.Stop();
+    }
+
+    void ApplyVolumeSettings()
+    {
+        Audio.MusicVolume = musicVolume;
+        Audio.SfxVolume = sfxVolume;
+        if (stageAudioSource != null) stageAudioSource.volume = musicVolume;
+        if (stressAudioSource != null) stressAudioSource.volume = stressVolume;
+    }
+
+    void OnValidate() => ApplyVolumeSettings();
+
+    public void PlayPlayerBulletSound(float volume = 1f) => PlayRandomClip(playerBulletSounds, volume);
+    public void PlayEnemyBulletSound(float volume = 1f) => PlayRandomClip(enemyBulletSounds, volume);
+    public void PlayEnemyMissileSound(float volume = 1f) => PlayRandomClip(enemyMissileSounds, volume);
+
+    static void PlayRandomClip(AudioClip[] clips, float volume)
+    {
+        if (clips == null || clips.Length == 0) return;
+        Audio.Play(clips[Random.Range(0, clips.Length)], volume);
     }
 
     public void TogglePause()
@@ -109,6 +181,9 @@ public class GameManager : MonoBehaviour
     void EndGame()
     {
         CurrentState = GameState.GameOver;
-        Audio.Play(gameOverSound);
+        stageAudioSource.Stop();
+        stressAudioSource.Stop();
+        Audio.PlayMusic(gameOverSound);
+        PlayerController.Instance?.Hide();
     }
 }

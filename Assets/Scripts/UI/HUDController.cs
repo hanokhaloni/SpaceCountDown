@@ -6,12 +6,20 @@ public class HUDController : MonoBehaviour
 {
     public static HUDController Instance { get; private set; }
 
+    const float timerTweenDuration = 0.5f;
+    static readonly Vector2 timerTweenOffscreenOffset = new Vector2(260f, 0f);
+
     Text stageText;
     Text timerText;
     Text centerMessageText;
     Text bannerText;
     Text respawnText;
     float bannerTimer;
+
+    Vector2 timerRestAnchoredPos;
+    bool timerTweening;
+    float timerTweenTimer;
+    GameManager.GameState previousState = GameManager.GameState.Title;
 
     void Awake()
     {
@@ -36,10 +44,12 @@ public class HUDController : MonoBehaviour
             esGO.AddComponent<StandaloneInputModule>();
         }
 
-        Font font = Resources.GetBuiltinResource<Font>("Arial.ttf");
+        Font font = Resources.Load<Font>("Fonts/PressStart2P-Regular")
+            ?? Font.CreateDynamicFontFromOSFont(new[] { "Consolas", "Courier New", "Courier" }, 24);
 
-        stageText = CreateLabel(canvasGO.transform, "StageText", font, new Vector2(0.5f, 1f), new Vector2(0f, -20f), TextAnchor.UpperCenter);
+        stageText = CreateLabel(canvasGO.transform, "StageText", font, new Vector2(0f, 1f), new Vector2(20f, -20f), TextAnchor.UpperLeft);
         timerText = CreateLabel(canvasGO.transform, "TimerText", font, new Vector2(1f, 1f), new Vector2(-20f, -20f), TextAnchor.UpperRight);
+        timerRestAnchoredPos = timerText.rectTransform.anchoredPosition;
 
         centerMessageText = CreateLabel(canvasGO.transform, "CenterMessage", font, new Vector2(0.5f, 0.5f), Vector2.zero, TextAnchor.MiddleCenter);
         centerMessageText.fontSize = 36;
@@ -95,6 +105,14 @@ public class HUDController : MonoBehaviour
         if (gm == null) return;
 
         bool onTitleScreen = gm.CurrentState == GameManager.GameState.Title;
+
+        if (previousState == GameManager.GameState.Title && gm.CurrentState == GameManager.GameState.Playing)
+        {
+            timerTweening = true;
+            timerTweenTimer = 0f;
+        }
+        previousState = gm.CurrentState;
+
         stageText.gameObject.SetActive(!onTitleScreen);
         timerText.gameObject.SetActive(!onTitleScreen);
 
@@ -102,6 +120,7 @@ public class HUDController : MonoBehaviour
         {
             stageText.text = $"STAGE {gm.Stage}";
             UpdateTimer(gm);
+            UpdateTimerTween();
         }
 
         UpdateCenterMessage(gm);
@@ -119,12 +138,27 @@ public class HUDController : MonoBehaviour
     {
         bool urgent = gm.TimeRemaining <= 10f;
 
-        timerText.text = $"TIME {Mathf.CeilToInt(gm.TimeRemaining)}";
+        float t = Mathf.Max(0f, gm.TimeRemaining);
+        int wholeSeconds = Mathf.FloorToInt(t);
+        int millis = Mathf.FloorToInt((t - wholeSeconds) * 1000f);
+        timerText.text = $"T MINUS {wholeSeconds:000}.{millis:000}";
         timerText.fontSize = urgent ? 44 : 24;
         timerText.color = urgent ? new Color(1f, 0.15f, 0.15f) : new Color(0.7f, 0.95f, 1f);
         timerText.rectTransform.localScale = urgent
             ? Vector3.one * (1f + 0.15f * Mathf.Sin(Time.time * 8f))
             : Vector3.one;
+    }
+
+    void UpdateTimerTween()
+    {
+        if (!timerTweening) return;
+
+        timerTweenTimer += Time.deltaTime;
+        float t = Mathf.Clamp01(timerTweenTimer / timerTweenDuration);
+        float eased = 1f - Mathf.Pow(1f - t, 3f);
+        timerText.rectTransform.anchoredPosition = Vector2.Lerp(timerRestAnchoredPos + timerTweenOffscreenOffset, timerRestAnchoredPos, eased);
+
+        if (t >= 1f) timerTweening = false;
     }
 
     void UpdateRespawnMessage()
@@ -144,7 +178,7 @@ public class HUDController : MonoBehaviour
     {
         if (gm.CurrentState == GameManager.GameState.Title)
         {
-            centerMessageText.text = "SPACE COUNTDOWN\n\nClick or press Space to start\n\nMove: WASD   Aim: Mouse   Fire: Left Click";
+            centerMessageText.text = "SPACE COUNTDOWN\n\nClick or press Space to start\n\nMove: WASD   Aim: Mouse   \n\nFire: Left Click";
             centerMessageText.gameObject.SetActive(true);
         }
         else if (gm.CurrentState == GameManager.GameState.Paused)

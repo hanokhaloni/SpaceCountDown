@@ -22,8 +22,7 @@ public class BossMovement : MonoBehaviour
 
     void Update()
     {
-        if (GameManager.Instance != null && GameManager.Instance.CurrentState != GameManager.GameState.Playing)
-            return;
+        if (IsFrozen()) return;
         if (core.IsEntering) return;
 
         if (!hasTarget)
@@ -45,6 +44,14 @@ public class BossMovement : MonoBehaviour
 
         float speed = baseSpeed * EngineSpeedMultiplier();
         transform.position += (Vector3)(toTarget.normalized * speed * Time.deltaTime);
+    }
+
+    static bool IsFrozen()
+    {
+        if (GameManager.Instance == null) return false;
+        var state = GameManager.Instance.CurrentState;
+        // Keeps drifting through Game Over (a defeat-screen flourish) but freezes on the title screen and while paused.
+        return state == GameManager.GameState.Title || state == GameManager.GameState.Paused;
     }
 
     void RotateTowardsPlayer()

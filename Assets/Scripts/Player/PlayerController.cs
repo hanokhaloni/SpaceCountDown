@@ -14,7 +14,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float hitboxRadius = 0.2f;
     [SerializeField] float arenaMargin = 0.3f;
     [SerializeField] float respawnDelay = 10f;
-    [SerializeField] AudioClip fireSound;
     [SerializeField] AudioClip hitSound;
     [SerializeField] AudioClip respawnSound;
 
@@ -120,7 +119,7 @@ public class PlayerController : MonoBehaviour
         {
             fireCooldown = 1f / fireRate;
             Bullet.Spawn(transform.position, transform.up, bulletSpeed, bulletRadius, bulletColor, Bullet.Owner.Player);
-            Audio.Play(fireSound, 0.5f);
+            GameManager.Instance?.PlayPlayerBulletSound(0.5f);
         }
     }
 
@@ -142,12 +141,28 @@ public class PlayerController : MonoBehaviour
 
     void Respawn()
     {
+        ResetPositionAndState();
+        Audio.Play(respawnSound);
+    }
+
+    public void Hide()
+    {
+        SetVisible(false);
+    }
+
+    public void ResetForNewRun()
+    {
+        ResetPositionAndState();
+    }
+
+    void ResetPositionAndState()
+    {
         IsDown = false;
+        respawnTimer = 0f;
         transform.position = spawnPosition;
         transform.rotation = Quaternion.identity;
         SetVisible(true);
         invulnTimer = invulnDuration;
-        Audio.Play(respawnSound);
     }
 
     void SetVisible(bool isVisible)
