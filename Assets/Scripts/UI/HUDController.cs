@@ -140,8 +140,8 @@ public class HUDController : MonoBehaviour
 
         float t = Mathf.Max(0f, gm.TimeRemaining);
         int wholeSeconds = Mathf.FloorToInt(t);
-        int millis = Mathf.FloorToInt((t - wholeSeconds) * 1000f);
-        timerText.text = $"T MINUS {wholeSeconds:000}.{millis:000}";
+        int millis = Mathf.FloorToInt((t - wholeSeconds) * 100f);
+        timerText.text = $"T MINUS {wholeSeconds:000}.{millis:00} ";
         timerText.fontSize = urgent ? 44 : 24;
         timerText.color = urgent ? new Color(1f, 0.15f, 0.15f) : new Color(0.7f, 0.95f, 1f);
         timerText.rectTransform.localScale = urgent

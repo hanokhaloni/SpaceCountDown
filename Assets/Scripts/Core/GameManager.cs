@@ -22,6 +22,14 @@ public class GameManager : MonoBehaviour
     [SerializeField, Range(0f, 1f)] float sfxVolume = 1f;
     [SerializeField, Range(0f, 1f)] float stressVolume = 1f;
 
+    [Header("Background Grid")]
+    [SerializeField] Color gridBackgroundColor = Color.black;
+    [SerializeField] Color gridLineColor = new Color(0.1f, 1f, 0.3f);
+    [SerializeField] float gridCellSize = 1f;
+    [SerializeField, Range(0.01f, 0.5f)] float gridLineThickness = 0.05f;
+    [SerializeField] float gridScrollSpeed = 0.15f;
+    [SerializeField] float gridRotationSpeedDegPerSec = 1f;
+
     const float stressThreshold = 10f;
 
     public GameState CurrentState { get; private set; } = GameState.Title;
@@ -64,6 +72,14 @@ public class GameManager : MonoBehaviour
 
         if (Camera.main != null && Camera.main.GetComponent<CameraShake>() == null)
             Camera.main.gameObject.AddComponent<CameraShake>();
+
+        if (FindObjectOfType<BackgroundGrid>() == null)
+        {
+            var gridGO = new GameObject("BackgroundGrid");
+            var grid = gridGO.AddComponent<BackgroundGrid>();
+            grid.Init(gridBackgroundColor, gridLineColor, gridCellSize, gridLineThickness, gridScrollSpeed, gridRotationSpeedDegPerSec);
+            DontDestroyOnLoad(gridGO);
+        }
     }
 
     void Update()
