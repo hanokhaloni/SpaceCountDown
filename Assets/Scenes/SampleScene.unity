@@ -32687,6 +32687,8 @@ MonoBehaviour:
   gridLineThickness: 0.05
   gridScrollSpeed: 0.15
   gridRotationSpeedDegPerSec: 1
+  crosshairSprite: {fileID: 21300000, guid: 5fb278a7add134949bc9da955cc65921, type: 3}
+  crosshairColor: {r: 1, g: 0.2, b: 0.2, a: 0.9}
 --- !u!114 &2000000023
 MonoBehaviour:
   m_ObjectHideFlags: 0

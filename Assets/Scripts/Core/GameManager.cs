@@ -30,6 +30,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] float gridScrollSpeed = 0.15f;
     [SerializeField] float gridRotationSpeedDegPerSec = 1f;
 
+    [Header("Crosshair")]
+    [SerializeField] Sprite crosshairSprite;
+    [SerializeField] Color crosshairColor = new Color(1f, 0.2f, 0.2f, 0.9f);
+
     const float stressThreshold = 10f;
 
     public GameState CurrentState { get; private set; } = GameState.Title;
@@ -79,6 +83,14 @@ public class GameManager : MonoBehaviour
             var grid = gridGO.AddComponent<BackgroundGrid>();
             grid.Init(gridBackgroundColor, gridLineColor, gridCellSize, gridLineThickness, gridScrollSpeed, gridRotationSpeedDegPerSec);
             DontDestroyOnLoad(gridGO);
+        }
+
+        if (FindObjectOfType<Crosshair>() == null)
+        {
+            var crosshairGO = new GameObject("Crosshair");
+            var crosshair = crosshairGO.AddComponent<Crosshair>();
+            crosshair.Init(crosshairSprite, crosshairColor);
+            DontDestroyOnLoad(crosshairGO);
         }
     }
 
